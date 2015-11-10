@@ -11,5 +11,7 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe UrlsHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "display_wee_url returns something" do
+    expect(subject.display_wee_url).to match("/http/")
+  end
 end

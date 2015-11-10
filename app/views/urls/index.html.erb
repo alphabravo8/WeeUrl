@@ -12,8 +12,8 @@
       <% @url.each do |u| %>
         <tr>
           <td><%= u.url %></td>
-          <td><%= u.slug.to_s %></td>
-          <td><%= link_to 'Show', u.slug.to_s, target: '_blank' %></td>
+          <td><%= link_to display_wee_url(u.slug.to_s), display_wee_url(u.slug.to_s), target: '_blank' %></td>
+          <td><%= link_to 'Show', display_wee_url(u.slug.to_s), target: '_blank' %></td>
         </tr>
       <% end %>
     </tbody>
