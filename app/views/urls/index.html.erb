@@ -1,0 +1,20 @@
+<h1>URLs List</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Real url</th>
+        <th>Wee Url</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @url.each do |u| %>
+        <tr>
+          <td><%= u.url %></td>
+          <td><%= u.slug.to_s %></td>
+          <td><%= link_to 'Show', u.slug.to_s, target: '_blank' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>

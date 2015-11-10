@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  
+  resources :urls, :only => [:index, :show, :new, :create]
+  root :to => redirect('/urls/new')
+  get ':slug' => 'urls#show'
+  
+  match "*path", to: redirect('/'), via: :all
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
