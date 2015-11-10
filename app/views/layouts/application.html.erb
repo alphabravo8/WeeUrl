@@ -2,19 +2,78 @@
 <html>
 <head>
   <title>WeeUrl</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
-<% if flash[:slug].present? %>
-  <p class='shortened-link'>
-    Your WeeUrl is now available <%= link_to display_wee_url(flash[:slug]), display_wee_url(flash[:slug]), target: "_blank" %>
-  </p>
-<% end %>
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">WeeUrl</a>
+            </div>
 
-<%= yield %>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a class="page-scroll" href="#page-top"></a>
+                    </li>
+                    <li>
+                        <%= link_to "Last Urls", urls_path %>
+                    </li>
+                    <li>
+                        <%= link_to "Shorten Url", :controller => "urls", :action => "new" %>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#about">About</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
 
+    <!-- Main Section -->
+    <section id="main" class="main-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+
+                <% if flash[:slug].present? %>
+                  <p class='shortened-link'>
+                    Your WeeUrl is now available <%= link_to display_wee_url(flash[:slug]), display_wee_url(flash[:slug]), target: "_blank" %>
+                  </p>
+                <% end %>
+                
+                <%= yield %>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- about section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>WeeUrl - Url Shortener</p>
+                </div>
+            </div>
+        </div>
+    </section>
 </body>
 </html>

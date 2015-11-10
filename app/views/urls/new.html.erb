@@ -1,10 +1,10 @@
 <h1>Add a new URL</h1>
 <%= form_for @url do |form| %>
 
-  <p>
-    <%= form.label :url, "Your URL:" %>
-    <%= form.text_field :url %>
-  </p>
+  <div class="form-group">
+    <%= form.label :url, "Paste Your URL here:" %>
+    <%= form.text_field :url, :class => "form-control add-new-url", :placeholder => "http://" %>
+  </div>
 
   <% if @url.errors[:url].any? %>
     <p class='error-messages'>
@@ -12,8 +12,8 @@
     </p>
   <% end %>
 
-  <p class='buttons'>
-    <%= form.submit "Shorten my URL" %>
-  </p>
+  <div class="form-group">
+    <%= form.submit "Wee this", :class => "btn btn-lg btn-primary" %>
+  </div>
 
 <% end %>
