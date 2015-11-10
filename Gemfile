@@ -51,3 +51,6 @@ end
 
 # JS Runtime
 gem 'therubyracer'
+
+# Validation helpers
+gem 'activevalidators'
