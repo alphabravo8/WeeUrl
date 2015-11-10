@@ -54,3 +54,7 @@ gem 'therubyracer'
 
 # Validation helpers
 gem 'activevalidators'
+
+# Bootstrap Frontend Framework
+gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
