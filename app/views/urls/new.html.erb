@@ -1,19 +1,21 @@
-<h1>Add a new URL</h1>
+<% title "Shorten an Url" %>
+
+<h1 class="page-title">Add a new URL</h1>
 <%= form_for @url do |form| %>
 
   <div class="form-group">
-    <%= form.label :url, "Paste Your URL here:" %>
+    <%= form.label :url, "Paste Your Long URL here" %>
     <%= form.text_field :url, :class => "form-control add-new-url", :placeholder => "http://" %>
   </div>
 
   <% if @url.errors[:url].any? %>
-    <p class='error-messages'>
+    <div class="alert alert-danger" role="alert">
       The given url <%= @url.errors[:url].to_sentence %>.
-    </p>
+    </div>
   <% end %>
 
   <div class="form-group">
-    <%= form.submit "Wee this", :class => "btn btn-lg btn-primary" %>
+    <%= form.submit "Shorten URL", :class => "btn btn-lg btn-primary" %>
   </div>
 
 <% end %>

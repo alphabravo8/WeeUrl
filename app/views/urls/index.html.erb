@@ -1,4 +1,6 @@
-<h1>URLs List</h1>
+<% title "Last URLs" %>
+
+<h1>Last URLs</h1>
 <div class="table-responsive">
   <table class="table">
     <thead>
@@ -12,7 +14,7 @@
     <tbody>
       <% @url.each do |u| %>
         <tr>
-          <td><%= u.url %></td>
+          <td><%= truncate(u.url, length: 50) %></td>
           <td><%= link_to display_wee_url(u.slug.to_s), display_wee_url(u.slug.to_s), target: '_blank' %></td>
           <td><%= link_to 'Show', display_wee_url(u.slug.to_s), target: '_blank' %></td>
         </tr>

@@ -1,6 +1,6 @@
 class UrlsController < ApplicationController
   def index
-    @url = Url.all
+    @url = Url.all.order(id: :desc)
   end
   
   def new
@@ -20,7 +20,7 @@ class UrlsController < ApplicationController
   def show
     @url = Url.find_by slug:params[:slug]
     if !@url.nil?
-      redirect_to @url.url  
+      redirect_to @url.url, :status => 301   
     else
       flash[:no_url_found] = "No Url Found"
       redirect_to '/'
